@@ -14,12 +14,9 @@ export default function Footer() {
                     {/* Brand */}
                     <div className="lg:col-span-2">
                         <a href="#" className="flex items-center gap-2.5 mb-5 group">
-                            <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 overflow-hidden border border-white/5">
-                                <img src="/logo.png" alt="Shootix Logo" className="w-7 h-7 object-contain" />
-                            </div>
+                            <img src="/logo.png" alt="Shootix Logo" className="w-12 h-12 object-contain" />
                             <div>
                                 <span className="text-xl font-black tracking-tight gradient-text">SHOOTIX</span>
-                                <span className="block text-[10px] text-subtle font-medium -mt-1">shootix.tn</span>
                             </div>
                         </a>
                         <p className="text-muted text-sm leading-relaxed mb-6 max-w-xs">

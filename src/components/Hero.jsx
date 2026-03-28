@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Play, Star } from 'lucide-react'
 
-export default function Hero() {
+export default function Hero({ onSignup }) {
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
             {/* Background glows */}
@@ -23,23 +22,12 @@ export default function Hero() {
                 <div className="flex flex-col lg:flex-row items-center gap-16">
                     {/* Left: Text */}
                     <div className="flex-1 text-center lg:text-left">
-                        {/* Badge */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-violet-500/20 text-sm font-medium text-violet-300 mb-6"
-                        >
-                            <span className="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
-                            Nouveau · Version 2026
-                            <Star size={12} className="fill-violet-400 text-violet-400" />
-                        </motion.div>
 
                         {/* Headline */}
                         <motion.h1
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.1 }}
+                            transition={{ duration: 0.7 }}
                             className="text-5xl lg:text-6xl xl:text-7xl font-black leading-tight mb-6"
                         >
                             Gérez votre{' '}
@@ -51,61 +39,27 @@ export default function Hero() {
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.2 }}
+                            transition={{ duration: 0.7, delay: 0.15 }}
                             className="text-lg text-muted leading-relaxed max-w-xl mx-auto lg:mx-0 mb-10"
                         >
-                            Shootix centralise tout ce dont vous avez besoin : facturation avec TVA 19%,
-                            calendrier de shooting, gestion clients et suivi de rentabilité — en un seul outil élégant.
+                            Shootix centralise tout : facturation TVA 19%, calendrier, clients et rentabilité.
+                            <span className="text-white font-bold block mt-2">Pack Studio Pro — 699 DT à vie. Profitez de 15 jours d'essai gratuit.</span>
                         </motion.p>
 
-                        {/* CTAs */}
+                        {/* CTA */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, delay: 0.3 }}
-                            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
                         >
-                            <a
-                                href="#pricing"
-                                className="group inline-flex items-center gap-2 px-7 py-4 rounded-2xl text-base font-semibold text-white bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 transition-all duration-300 glow-violet shadow-2xl"
+                            <button
+                                onClick={onSignup}
+                                className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-base font-semibold text-white bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 transition-all duration-300 glow-violet shadow-2xl hover:scale-[1.02] active:scale-[0.98]"
                             >
-                                Commencer gratuitement
-                                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                            </a>
-                            <a
-                                href="#features"
-                                className="inline-flex items-center gap-2 px-7 py-4 rounded-2xl text-base font-semibold text-white glass hover:bg-white/10 transition-all duration-300"
-                            >
-                                <Play size={16} className="fill-white" />
-                                Voir la démo
-                            </a>
+                                Démarrer l'essai gratuit — 15 jours
+                            </button>
                         </motion.div>
 
-                        {/* Social proof */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 1, delay: 0.6 }}
-                            className="mt-10 flex items-center gap-4 justify-center lg:justify-start"
-                        >
-                            <div className="flex -space-x-2">
-                                {['#6C63FF', '#4F46E5', '#7C3AED', '#8B5CF6'].map((color, i) => (
-                                    <div
-                                        key={i}
-                                        className="w-8 h-8 rounded-full border-2 border-night flex items-center justify-center text-xs font-bold"
-                                        style={{ backgroundColor: color }}
-                                    >
-                                        {['A', 'M', 'S', 'K'][i]}
-                                    </div>
-                                ))}
-                            </div>
-                            <div>
-                                <div className="flex items-center gap-1 text-yellow-400 text-sm">
-                                    {'★★★★★'}
-                                </div>
-                                <span className="text-xs text-muted">+200 photographes satisfaits</span>
-                            </div>
-                        </motion.div>
                     </div>
 
                     {/* Right: Dashboard Preview */}
