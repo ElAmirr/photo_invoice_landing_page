@@ -42,7 +42,7 @@ export default function Hero({ onSignup }) {
                             transition={{ duration: 0.7, delay: 0.15 }}
                             className="text-lg text-muted leading-relaxed max-w-xl mx-auto lg:mx-0 mb-10"
                         >
-                            Shootix centralise tout : facturation TVA 19%, calendrier, clients et rentabilité.
+                            Shootix centralise tout : facturation, devis, calendrier, clients et rentabilité, gestion de lequipe'.
                             <span className="text-white font-bold block mt-2">Pack Studio Pro — 699 DT à vie. Profitez de 15 jours d'essai gratuit.</span>
                         </motion.p>
 

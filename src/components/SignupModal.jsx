@@ -9,19 +9,39 @@ export default function SignupModal({ isOpen, onClose }) {
     const [status, setStatus] = useState('idle') // idle | loading | success | error
     const [form, setForm] = useState({ name: '', email: '', studio: '', phone: '' })
 
+    const formatTunisianPhone = (raw) => {
+        // Strip everything except digits
+        const digits = raw.replace(/\D/g, '').slice(0, 8)
+        // Format as XX XXX XXX
+        if (digits.length <= 2) return digits
+        if (digits.length <= 5) return `${digits.slice(0, 2)} ${digits.slice(2)}`
+        return `${digits.slice(0, 2)} ${digits.slice(2, 5)} ${digits.slice(5)}`
+    }
+
     const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value })
+        const { name, value } = e.target
+        if (name === 'phone') {
+            setForm({ ...form, phone: formatTunisianPhone(value) })
+        } else {
+            setForm({ ...form, [name]: value })
+        }
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        // Custom phone validation: must have 8 digits
+        const digits = form.phone.replace(/\D/g, '')
+        if (digits.length !== 8) {
+            setStatus('phone_error')
+            return
+        }
         setStatus('loading')
 
         const templateParams = {
             from_name: form.name,
             from_email: form.email,
             studio_name: form.studio,
-            phone: form.phone,
+            phone: form.phone ? `+216 ${form.phone}` : '',
             signup_date: new Date().toLocaleString('fr-TN', { dateStyle: 'full', timeStyle: 'short' }),
         }
 
@@ -100,12 +120,20 @@ export default function SignupModal({ isOpen, onClose }) {
                                         <p className="text-muted text-sm leading-relaxed">
                                             Vos identifiants de connexion vous seront envoyés à <strong className="text-white">{form.email || 'votre adresse email'}</strong> dans les 24 heures.
                                         </p>
-                                        <button
-                                            onClick={onClose}
-                                            className="mt-6 px-6 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold hover:scale-105 transition-transform"
-                                        >
-                                            Fermer
-                                        </button>
+                                        <div className="flex flex-col gap-2 mt-6">
+                                            <button
+                                                onClick={onClose}
+                                                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold hover:scale-105 transition-transform"
+                                            >
+                                                Fermer
+                                            </button>
+                                            <button
+                                                onClick={() => setStatus('idle')}
+                                                className="px-6 py-2 rounded-xl text-xs font-medium text-muted hover:text-white transition-colors"
+                                            >
+                                                ↩ Corriger mes informations
+                                            </button>
+                                        </div>
                                     </motion.div>
                                 ) : (
                                     <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
@@ -161,18 +189,33 @@ export default function SignupModal({ isOpen, onClose }) {
 
                                         {/* Phone */}
                                         <div>
-                                            <label className="block text-xs font-semibold text-muted mb-1.5">Numéro de téléphone</label>
-                                            <div className="relative">
-                                                <Phone size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted/60" />
+                                            <label className="block text-xs font-semibold text-muted mb-1.5">Numéro de téléphone *</label>
+                                            <div className="relative flex items-center">
+                                                <div className="absolute left-3 flex items-center gap-1.5 pointer-events-none">
+                                                    <Phone size={13} className="text-muted/60" />
+                                                    <span className="text-muted/60 text-sm font-medium">+216</span>
+                                                    <span className="text-white/10">|</span>
+                                                </div>
                                                 <input
                                                     type="tel"
                                                     name="phone"
                                                     value={form.phone}
-                                                    onChange={handleChange}
-                                                    placeholder="+216 XX XXX XXX"
-                                                    className="w-full pl-9 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-muted/40 focus:outline-none focus:border-violet-500/50 focus:bg-violet-500/5 transition-all"
+                                                    onChange={(e) => { setStatus('idle'); handleChange(e) }}
+                                                    placeholder="XX XXX XXX"
+                                                    maxLength={10}
+                                                    required
+                                                    className={`w-full pl-[4.5rem] pr-4 py-3 rounded-xl bg-white/5 border text-white text-sm placeholder-muted/40 focus:outline-none focus:bg-violet-500/5 transition-all tracking-wide ${status === 'phone_error'
+                                                            ? 'border-red-500/60 focus:border-red-500/60'
+                                                            : 'border-white/10 focus:border-violet-500/50'
+                                                        }`}
                                                 />
                                             </div>
+                                            {status === 'phone_error' && (
+                                                <p className="text-red-400 text-[11px] mt-1.5 flex items-center gap-1">
+                                                    <AlertCircle size={11} />
+                                                    Le numéro doit contenir exactement 8 chiffres.
+                                                </p>
+                                            )}
                                         </div>
 
                                         {status === 'error' && (
