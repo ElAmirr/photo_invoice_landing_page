@@ -6,7 +6,7 @@ const features = [
         icon: FileText,
         title: 'Facturation Intelligente',
         desc: 'Générez des devis et factures professionnelles avec TVA 19% calculée automatiquement. Suivez les paiements, acomptes et impayés en temps réel.',
-        color: '#6C63FF',
+        color: '#9333EA',
         tag: 'TVA 19% incluse',
     },
     {
@@ -63,7 +63,7 @@ export default function Features() {
         <section id="features" className="relative py-28 overflow-hidden">
             {/* Background */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-violet-900/10 blur-[120px]" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-purple-900/10 blur-[120px]" />
             </div>
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -75,8 +75,8 @@ export default function Features() {
                     transition={{ duration: 0.7 }}
                     className="text-center mb-16"
                 >
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-violet-500/20 text-sm font-medium text-violet-300 mb-5">
-                        <span className="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-purple-500/20 text-sm font-medium text-purple-300 mb-5">
+                        <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
                         Fonctionnalités
                     </div>
                     <h2 className="text-4xl lg:text-5xl font-black mb-5">

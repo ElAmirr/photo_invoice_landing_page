@@ -25,15 +25,15 @@ export default function Footer() {
 
                         {/* Contact */}
                         <div className="space-y-2 mb-6">
-                            <a href="https://shootix.tn" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted hover:text-violet-400 text-sm transition-colors group">
-                                <Globe size={14} className="group-hover:text-violet-400" />
+                            <a href="https://shootix.tn" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted hover:text-purple-400 text-sm transition-colors group">
+                                <Globe size={14} className="group-hover:text-purple-400" />
                                 shootix.tn
                             </a>
-                            <a href="mailto:contact@shootix.tn" className="flex items-center gap-2 text-muted hover:text-violet-400 text-sm transition-colors group">
+                            <a href="mailto:contact@shootix.tn" className="flex items-center gap-2 text-muted hover:text-purple-400 text-sm transition-colors group">
                                 <Mail size={14} />
                                 contact@shootix.tn
                             </a>
-                            <a href="tel:+216XX000000" className="flex items-center gap-2 text-muted hover:text-violet-400 text-sm transition-colors group">
+                            <a href="tel:+216XX000000" className="flex items-center gap-2 text-muted hover:text-purple-400 text-sm transition-colors group">
                                 <Phone size={14} />
                                 +216 23 361 135
                             </a>
@@ -50,7 +50,7 @@ export default function Footer() {
                                     key={label}
                                     href={href}
                                     aria-label={label}
-                                    className="w-9 h-9 rounded-xl glass flex items-center justify-center text-muted hover:text-violet-400 hover:border-violet-500/30 transition-all duration-300 border border-white/5"
+                                    className="w-9 h-9 rounded-xl glass flex items-center justify-center text-muted hover:text-purple-400 hover:border-purple-500/30 transition-all duration-300 border border-white/5"
                                 >
                                     <Icon size={16} />
                                 </a>
@@ -85,7 +85,7 @@ export default function Footer() {
                         Conçu avec
                         <span className="text-red-400 mx-1">❤</span>
                         en Tunisie ·
-                        <a href="https://shootix.tn" target="_blank" rel="noopener noreferrer" className="text-violet-400 hover:text-violet-300 transition-colors ml-1">
+                        <a href="https://shootix.tn" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 transition-colors ml-1">
                             shootix.tn
                         </a>
                     </div>

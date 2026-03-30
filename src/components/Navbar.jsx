@@ -45,7 +45,7 @@ export default function Navbar({ onSignup }) {
                             className="text-sm font-medium text-muted hover:text-white transition-colors duration-200 relative group"
                         >
                             {link.label}
-                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-500 to-indigo-500 group-hover:w-full transition-all duration-300 rounded-full" />
+                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-500 to-fuchsia-500 group-hover:w-full transition-all duration-300 rounded-full" />
                         </a>
                     ))}
                 </div>
@@ -54,7 +54,7 @@ export default function Navbar({ onSignup }) {
                 <div className="hidden md:flex items-center gap-3">
                     <button
                         onClick={onSignup}
-                        className="px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 transition-all duration-300 glow-sm hover:glow-violet shadow-lg"
+                        className="px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 transition-all duration-300 glow-sm hover:glow-violet shadow-lg"
                     >
                         Essai Gratuit
                     </button>
@@ -91,7 +91,7 @@ export default function Navbar({ onSignup }) {
                             ))}
                             <button
                                 onClick={() => { onSignup(); setMobileOpen(false); }}
-                                className="px-5 py-2.5 rounded-xl text-sm font-semibold text-white text-center bg-gradient-to-r from-violet-600 to-indigo-600"
+                                className="px-5 py-2.5 rounded-xl text-sm font-semibold text-white text-center bg-gradient-to-r from-violet-600 to-fuchsia-600"
                             >
                                 Essai Gratuit
                             </button>

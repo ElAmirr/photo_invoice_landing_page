@@ -12,15 +12,15 @@ export default function CTABanner({ onSignup }) {
                     transition={{ duration: 0.8 }}
                     className="relative rounded-3xl overflow-hidden p-12 text-center"
                     style={{
-                        background: 'linear-gradient(135deg, rgba(108,99,255,0.2) 0%, rgba(79,70,229,0.15) 50%, rgba(30,22,55,0.9) 100%)',
-                        border: '1px solid rgba(108,99,255,0.3)',
+                        background: 'linear-gradient(135deg, rgba(147,51,234,0.2) 0%, rgba(192,38,211,0.15) 50%, rgba(30,22,55,0.9) 100%)',
+                        border: '1px solid rgba(147,51,234,0.3)',
                     }}
                 >
                     {/* Glow top */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-px bg-gradient-to-r from-transparent via-violet-500/60 to-transparent" />
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-px bg-gradient-to-r from-transparent via-purple-500/60 to-transparent" />
                     {/* Scattered orbs */}
-                    <div className="absolute top-1/4 left-10 w-32 h-32 rounded-full bg-violet-600/10 blur-3xl" />
-                    <div className="absolute bottom-1/4 right-10 w-32 h-32 rounded-full bg-indigo-600/10 blur-3xl" />
+                    <div className="absolute top-1/4 left-10 w-32 h-32 rounded-full bg-purple-600/15 blur-3xl" />
+                    <div className="absolute bottom-1/4 right-10 w-32 h-32 rounded-full bg-fuchsia-600/15 blur-3xl" />
 
                     <div className="relative z-10">
                         <div className="flex items-center gap-2.5 group mx-auto mb-6 justify-center">
@@ -41,7 +41,7 @@ export default function CTABanner({ onSignup }) {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <button
                                 onClick={onSignup}
-                                className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl text-base font-semibold text-white bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 transition-all duration-300 glow-violet shadow-2xl"
+                                className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl text-base font-semibold text-white bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 transition-all duration-300 glow-violet shadow-2xl"
                             >
                                 Essai gratuit — 15 jours
                                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

@@ -23,7 +23,7 @@ export default function Pricing({ onSignup }) {
     return (
         <section id="pricing" className="min-h-screen flex flex-col justify-center relative overflow-hidden py-10">
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-violet-900/10 blur-[120px]" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-purple-900/15 blur-[120px]" />
             </div>
 
             <div className="max-w-6xl mx-auto px-6 relative z-10 w-full">
@@ -35,8 +35,8 @@ export default function Pricing({ onSignup }) {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-8"
                 >
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass border border-violet-500/20 text-xs font-medium text-violet-300 mb-3">
-                        <Sparkles size={11} className="text-violet-400" />
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass border border-purple-500/20 text-xs font-medium text-purple-300 mb-3">
+                        <Sparkles size={11} className="text-purple-400" />
                         Offre de lancement
                     </div>
                     <h2 className="text-3xl lg:text-4xl font-black mb-3">
@@ -100,14 +100,14 @@ export default function Pricing({ onSignup }) {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="relative rounded-2xl p-[1px] shadow-2xl overflow-hidden"
-                        style={{ background: 'linear-gradient(135deg, rgba(108,99,255,0.5), rgba(79,70,229,0.1))' }}
+                        style={{ background: 'linear-gradient(135deg, rgba(147,51,234,0.5), rgba(192,38,211,0.2))' }}
                     >
-                        <div className="absolute top-4 right-4 z-10 px-2.5 py-0.5 rounded-full bg-violet-500 text-white text-[9px] font-black uppercase tracking-wider shadow-lg shadow-violet-500/30">
+                        <div className="absolute top-4 right-4 z-10 px-2.5 py-0.5 rounded-full bg-fuchsia-600 text-white text-[9px] font-black uppercase tracking-wider shadow-lg shadow-fuchsia-500/30">
                             Recommandé
                         </div>
 
                         <div className="bg-[#0d1119] rounded-[calc(1rem-1px)] p-6 h-full flex flex-col">
-                            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-4 self-start">
+                            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-[10px] font-bold text-purple-400 uppercase tracking-widest mb-4 self-start">
                                 <ShieldCheck size={10} />
                                 Licence à vie
                             </div>
@@ -131,8 +131,8 @@ export default function Pricing({ onSignup }) {
                             <div className="space-y-2 mb-4 flex-1">
                                 {proFeatures.map((feat, i) => (
                                     <div key={i} className="flex items-center gap-2.5 text-xs">
-                                        <div className="w-4 h-4 rounded-full bg-violet-500/10 flex items-center justify-center border border-violet-500/20 flex-shrink-0">
-                                            <Check size={9} className="text-violet-400" />
+                                        <div className="w-4 h-4 rounded-full bg-purple-500/10 flex items-center justify-center border border-purple-500/20 flex-shrink-0">
+                                            <Check size={9} className="text-purple-400" />
                                         </div>
                                         <span className="text-muted/80">{feat}</span>
                                     </div>
@@ -141,9 +141,9 @@ export default function Pricing({ onSignup }) {
 
                             <div className="space-y-2">
                                 <a
-                                    href="/shootix_macos.dmg"
+                                    href="/"
                                     download
-                                    className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-bold hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-lg shadow-violet-500/20"
+                                    className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white text-sm font-bold hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-lg shadow-violet-500/20"
                                 >
                                     <Download size={14} />
                                     Télécharger pour macOS

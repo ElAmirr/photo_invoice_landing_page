@@ -5,14 +5,14 @@ export default function Hero({ onSignup }) {
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
             {/* Background glows */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-violet-600/10 blur-[120px]" />
-                <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] rounded-full bg-indigo-800/15 blur-[80px]" />
-                <div className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] rounded-full bg-violet-500/10 blur-[80px]" />
+                <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-purple-600/15 blur-[120px]" />
+                <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] rounded-full bg-fuchsia-800/20 blur-[80px]" />
+                <div className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] rounded-full bg-purple-500/15 blur-[80px]" />
                 {/* Grid */}
                 <div
                     className="absolute inset-0 opacity-[0.03]"
                     style={{
-                        backgroundImage: 'linear-gradient(rgba(108,99,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(108,99,255,1) 1px, transparent 1px)',
+                        backgroundImage: 'linear-gradient(rgba(147,51,234,1) 1px, transparent 1px), linear-gradient(90deg, rgba(147,51,234,1) 1px, transparent 1px)',
                         backgroundSize: '60px 60px',
                     }}
                 />
@@ -54,7 +54,7 @@ export default function Hero({ onSignup }) {
                         >
                             <button
                                 onClick={onSignup}
-                                className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-base font-semibold text-white bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 transition-all duration-300 glow-violet shadow-2xl hover:scale-[1.02] active:scale-[0.98]"
+                                className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-base font-semibold text-white bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 transition-all duration-300 glow-violet shadow-2xl hover:scale-[1.02] active:scale-[0.98]"
                             >
                                 Démarrer l'essai gratuit — 15 jours
                             </button>
