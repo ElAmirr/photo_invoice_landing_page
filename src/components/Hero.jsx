@@ -1,6 +1,45 @@
 import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { Timer, Flame } from 'lucide-react'
+
+function useCountdown(targetDate) {
+    const [timeLeft, setTimeLeft] = useState(() => calcTimeLeft(targetDate))
+
+    function calcTimeLeft(target) {
+        const diff = new Date(target) - new Date()
+        if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 }
+        return {
+            days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+            hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+            minutes: Math.floor((diff / 1000 / 60) % 60),
+            seconds: Math.floor((diff / 1000) % 60),
+        }
+    }
+
+    useEffect(() => {
+        const timer = setInterval(() => setTimeLeft(calcTimeLeft(targetDate)), 1000)
+        return () => clearInterval(timer)
+    }, [targetDate])
+
+    return timeLeft
+}
+
+function CountdownUnit({ value, label }) {
+    return (
+        <div className="flex flex-col items-center">
+            <div className="relative">
+                <div className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl font-black text-white tabular-nums backdrop-blur-sm shadow-inner">
+                    {String(value).padStart(2, '0')}
+                </div>
+            </div>
+            <span className="text-[9px] uppercase tracking-widest text-muted/70 mt-1.5 font-semibold">{label}</span>
+        </div>
+    )
+}
 
 export default function Hero({ onSignup }) {
+    const timeLeft = useCountdown('2026-05-30T23:59:59')
+
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
             {/* Background glows */}
@@ -23,11 +62,22 @@ export default function Hero({ onSignup }) {
                     {/* Left: Text */}
                     <div className="flex-1 text-center lg:text-left">
 
+                        {/* Promo Badge */}
+                        <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
+                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6 text-xs font-bold uppercase tracking-widest border border-fuchsia-500/40 bg-fuchsia-500/10 text-fuchsia-300"
+                        >
+                            <Flame size={12} className="text-fuchsia-400 animate-pulse" />
+                            Offre limitée — 549 DT au lieu de 699 DT
+                        </motion.div>
+
                         {/* Headline */}
                         <motion.h1
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7 }}
+                            transition={{ duration: 0.7, delay: 0.1 }}
                             className="text-5xl lg:text-6xl xl:text-7xl font-black leading-tight mb-6"
                         >
                             Gérez votre{' '}
@@ -39,18 +89,42 @@ export default function Hero({ onSignup }) {
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.15 }}
-                            className="text-lg text-muted leading-relaxed max-w-xl mx-auto lg:mx-0 mb-10"
+                            transition={{ duration: 0.7, delay: 0.2 }}
+                            className="text-lg text-muted leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8"
                         >
-                            Shootix centralise tout : facturation, devis, calendrier, clients et rentabilité, gestion de lequipe'.
-                            <span className="text-white font-bold block mt-2">Pack Studio Pro — 699 DT à vie. Profitez de 15 jours d'essai gratuit.</span>
+                            Shootix centralise tout : facturation, devis, calendrier, clients et rentabilité. Commencez gratuitement pendant 15 jours.
                         </motion.p>
+
+                        {/* Countdown */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, delay: 0.3 }}
+                            className="mb-8"
+                        >
+                            <div className="inline-block rounded-2xl border border-white/10 glass p-4 lg:p-5">
+                                <div className="flex items-center gap-2 mb-3 justify-center lg:justify-start">
+                                    <Timer size={13} className="text-fuchsia-400" />
+                                    <span className="text-[11px] text-muted/70 font-semibold uppercase tracking-widest">Offre expire dans</span>
+                                </div>
+                                <div className="flex items-start gap-3">
+                                    <CountdownUnit value={timeLeft.days} label="Jours" />
+                                    <span className="text-2xl font-black text-white/30 mt-3">:</span>
+                                    <CountdownUnit value={timeLeft.hours} label="Heures" />
+                                    <span className="text-2xl font-black text-white/30 mt-3">:</span>
+                                    <CountdownUnit value={timeLeft.minutes} label="Minutes" />
+                                    <span className="text-2xl font-black text-white/30 mt-3">:</span>
+                                    <CountdownUnit value={timeLeft.seconds} label="Secondes" />
+                                </div>
+                            </div>
+                        </motion.div>
 
                         {/* CTA */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.3 }}
+                            transition={{ duration: 0.7, delay: 0.4 }}
+                            className="flex flex-col sm:flex-row items-center gap-3 justify-center lg:justify-start"
                         >
                             <button
                                 onClick={onSignup}
@@ -58,6 +132,12 @@ export default function Hero({ onSignup }) {
                             >
                                 Démarrer l'essai gratuit — 15 jours
                             </button>
+                            <a
+                                href="#pricing"
+                                className="text-sm text-muted hover:text-white transition-colors font-medium underline underline-offset-4 decoration-white/20 hover:decoration-white/60"
+                            >
+                                Voir l'offre à 549 DT →
+                            </a>
                         </motion.div>
 
                     </div>
@@ -71,7 +151,6 @@ export default function Hero({ onSignup }) {
                             className="relative animate-float"
                         >
                             <DashboardPreview />
-
                         </motion.div>
                     </div>
                 </div>
