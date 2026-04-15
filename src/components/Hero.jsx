@@ -50,7 +50,7 @@ export default function Hero({ onSignup }) {
     const timeLeft = useCountdown('2026-05-30T23:59:59')
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <section className="relative h-screen flex items-center justify-center overflow-hidden pt-16">
             {/* Background */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-purple-600/12 blur-[130px]" />
@@ -76,7 +76,7 @@ export default function Hero({ onSignup }) {
                             initial={{ opacity: 0, y: -16 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6 text-xs font-black uppercase tracking-widest border border-fuchsia-500/30 bg-fuchsia-500/8 text-fuchsia-300 backdrop-blur-md"
+                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 text-[10px] font-black uppercase tracking-widest border border-fuchsia-500/30 bg-fuchsia-500/10 text-fuchsia-300 backdrop-blur-md"
                         >
                             <Flame size={11} className="text-fuchsia-400 animate-pulse" />
                             Offre limitée — 549 DT au lieu de 699 DT
@@ -87,11 +87,10 @@ export default function Hero({ onSignup }) {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.1 }}
-                            className="text-5xl lg:text-6xl xl:text-[4.5rem] font-black leading-[1.06] tracking-tight mb-6"
+                            className="text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.06] tracking-tight mb-4"
                         >
                             Gérez votre{' '}
                             <span className="gradient-text">studio photo</span>
-                            <br className="hidden sm:block" />
                             {' '}comme un pro
                         </motion.h1>
 
@@ -100,10 +99,10 @@ export default function Hero({ onSignup }) {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, delay: 0.2 }}
-                            className="text-base lg:text-lg text-muted leading-relaxed mb-8"
+                            className="text-sm lg:text-base text-muted leading-relaxed mb-5"
                         >
                             Facturation, clients, calendrier, dépenses et rentabilité — tout en un.
-                            <span className="text-white font-semibold"> Essayez gratuitement pendant 15 jours.</span>
+                            <span className="text-white font-semibold"> 15 jours d'essai gratuit.</span>
                         </motion.p>
 
                         {/* ── Countdown ── */}
@@ -111,10 +110,10 @@ export default function Hero({ onSignup }) {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, delay: 0.3 }}
-                            className="mb-8"
+                            className="mb-5"
                         >
-                            <div className="inline-block glass rounded-2xl border border-white/8 px-5 py-4">
-                                <div className="flex items-center gap-2 mb-4 justify-center lg:justify-start">
+                            <div className="inline-block glass rounded-xl border border-white/8 px-4 py-3">
+                                <div className="flex items-center gap-2 mb-3 justify-center lg:justify-start">
                                     <Clock size={12} className="text-fuchsia-400" />
                                     <p className="text-[10px] font-bold uppercase tracking-widest text-muted/60">
                                         Offre expire dans
@@ -160,7 +159,7 @@ export default function Hero({ onSignup }) {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 1, delay: 0.7 }}
-                            className="text-[11px] text-muted/40 mt-6 font-medium"
+                            className="text-[10px] text-muted/40 mt-4 font-medium"
                         >
                             ✓ Aucune carte bancaire &nbsp;·&nbsp; ✓ Accès immédiat &nbsp;·&nbsp; ✓ Annulable à tout moment
                         </motion.p>
