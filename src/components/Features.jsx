@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FileText, Calendar, Users, UserCheck, TrendingUp, FileDown } from 'lucide-react'
+import { FileText, Calendar, Users, UserCheck, TrendingUp, FileDown, Wallet } from 'lucide-react'
 
 const features = [
     {
@@ -38,12 +38,20 @@ const features = [
         tag: 'Bénéfice net calculé',
     },
     {
+        icon: Wallet,
+        title: 'Gestion des Dépenses',
+        desc: 'Suivez tous les paiements liés à votre business (loyer, matériel, abonnements). Gardez un œil sur vos sorties d\'argent pour une rentabilité réelle.',
+        color: '#f97316',
+        tag: 'Contrôle total',
+    }
+    /*,
+    {
         icon: FileDown,
         title: 'PDFs Professionnels',
         desc: 'Exportez vos devis et factures en PDF haute qualité prêts à envoyer à vos clients. Logo, coordonnées, TVA — tout est formaté impeccablement.',
         color: '#ef4444',
         tag: 'Génération instantanée',
-    },
+    },*/
 ]
 
 const containerVariants = {
