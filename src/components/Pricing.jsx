@@ -203,16 +203,18 @@ export default function Pricing({ onSignup }) {
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-2xl mx-auto">
                         <a
-                            href="/Shootix-1.0.5-arm64.dmg"
-                            download
+                            href="https://drive.google.com/uc?export=download&id=1Esnv62q0czZRkc3sxMDLla7wOU1VpzIW"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-3 rounded-xl glass border border-white/10 text-white text-sm font-bold hover:bg-white/5 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 group"
                         >
                             <Download size={16} className="text-purple-400 group-hover:scale-110 transition-transform" />
                             macOS (v1.0.5)
                         </a>
                         <a
-                            href="/Shootix Setup 1.0.5.exe"
-                            download
+                            href="https://drive.google.com/uc?export=download&id=1Xy9M_UdFedjcUsF89aPDNmQUr7l-Dhuz"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-3 rounded-xl glass border border-white/10 text-white text-sm font-bold hover:bg-white/5 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 group"
                         >
                             <Download size={16} className="text-blue-400 group-hover:scale-110 transition-transform" />
