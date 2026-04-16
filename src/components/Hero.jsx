@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { Flame, ArrowRight, Clock } from 'lucide-react'
+import { Flame, Clock } from 'lucide-react'
 
 function useCountdown(targetDate) {
     const calc = (target) => {
@@ -137,17 +137,15 @@ export default function Hero({ onSignup }) {
                         >
                             <button
                                 onClick={onSignup}
-                                className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl text-base font-bold text-white bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 transition-all duration-300 glow-violet shadow-2xl hover:scale-[1.02] active:scale-[0.98]"
+                                className="inline-flex items-center justify-center px-8 py-4 rounded-2xl text-base font-bold text-white bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 transition-all duration-300 glow-violet shadow-2xl hover:scale-[1.02] active:scale-[0.98]"
                             >
                                 Démarrer l'essai gratuit
-                                <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
                             </button>
                             <a
                                 href="#pricing"
-                                className="text-sm text-muted hover:text-white transition-colors duration-200 font-semibold flex items-center gap-1.5 group"
+                                className="inline-flex items-center justify-center px-6 py-4 rounded-2xl text-sm font-bold glass border border-white/10 text-white hover:bg-white/5 transition-all duration-300"
                             >
                                 Voir l'offre à 549 DT
-                                <span className="opacity-50 group-hover:translate-x-0.5 transition-transform inline-block">→</span>
                             </a>
                         </motion.div>
 
