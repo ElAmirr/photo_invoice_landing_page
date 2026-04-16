@@ -71,17 +71,6 @@ export default function Hero({ onSignup }) {
                     {/* —— Left Column —— */}
                     <div className="flex-1 text-center lg:text-left max-w-xl mx-auto lg:mx-0">
 
-                        {/* Promo Pill */}
-                        <motion.div
-                            initial={{ opacity: 0, y: -16 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 text-[10px] font-black uppercase tracking-widest border border-fuchsia-500/30 bg-fuchsia-500/10 text-fuchsia-300 backdrop-blur-md"
-                        >
-                            <Flame size={11} className="text-fuchsia-400 animate-pulse" />
-                            Offre limitée — 549 DT au lieu de 699 DT
-                        </motion.div>
-
                         {/* H1 */}
                         <motion.h1
                             initial={{ opacity: 0, y: 30 }}
@@ -113,10 +102,18 @@ export default function Hero({ onSignup }) {
                             className="mb-5"
                         >
                             <div className="inline-block glass rounded-xl border border-white/8 px-4 py-3">
+                                {/* Promo label */}
                                 <div className="flex items-center gap-2 mb-3 justify-center lg:justify-start">
-                                    <Clock size={12} className="text-fuchsia-400" />
-                                    <p className="text-[10px] font-bold uppercase tracking-widest text-muted/60">
-                                        Offre expire dans
+                                    <Flame size={11} className="text-fuchsia-400 animate-pulse" />
+                                    <p className="text-[10px] font-black uppercase tracking-widest text-fuchsia-300">
+                                        Offre limitée — 549 DT au lieu de 699 DT
+                                    </p>
+                                </div>
+                                {/* Timer label */}
+                                <div className="flex items-center gap-2 mb-3 justify-center lg:justify-start">
+                                    <Clock size={12} className="text-muted/50" />
+                                    <p className="text-[9px] font-bold uppercase tracking-widest text-muted/50">
+                                        Expire dans
                                     </p>
                                 </div>
                                 <div className="flex items-start gap-2.5">
