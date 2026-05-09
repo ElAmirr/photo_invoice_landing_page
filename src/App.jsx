@@ -5,7 +5,6 @@ import Features from './components/Features'
 import WhyShootix from './components/WhyShootix'
 import Pricing from './components/Pricing'
 import Testimonials from './components/Testimonials'
-import CTABanner from './components/CTABanner'
 import Footer from './components/Footer'
 import SignupModal from './components/SignupModal'
 
@@ -21,7 +20,6 @@ export default function App() {
                 <WhyShootix />
                 <Pricing onSignup={() => setShowSignup(true)} />
                 <Testimonials />
-                <CTABanner onSignup={() => setShowSignup(true)} />
             </main>
             <Footer />
             <SignupModal isOpen={showSignup} onClose={() => setShowSignup(false)} />

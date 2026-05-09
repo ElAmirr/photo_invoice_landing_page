@@ -1,63 +1,71 @@
 import { motion } from 'framer-motion'
-import { FileText, Calendar, Users, UserCheck, TrendingUp, FileDown, Wallet } from 'lucide-react'
+import {
+    FileText, Camera, Users, UserCheck, TrendingUp, FileDown, Wallet, Building, LayoutDashboard
+} from 'lucide-react'
 
 const features = [
     {
-        icon: FileText,
-        title: 'Facturation Intelligente',
-        desc: 'Générez des devis et factures professionnelles avec TVA 19% calculée automatiquement. Suivez les paiements, acomptes et impayés en temps réel.',
+        icon: LayoutDashboard,
+        title: 'Tableau de Bord Financier',
+        desc: 'Vue d\'ensemble en temps réel : encaissements entreprises & particuliers, bénéfice net TTC, TVA à payer et paiements en attente. Filtrez par mois, trimestre ou année.',
         color: '#9333EA',
+        tag: 'Temps réel',
+    },
+    {
+        icon: FileText,
+        title: 'Factures & Devis Professionnels',
+        desc: 'Créez devis et factures numérotés automatiquement avec TVA 19% calculée. Suivez les acomptes, règlements partiels et impayés par client.',
+        color: '#8b5cf6',
         tag: 'TVA 19% incluse',
     },
     {
-        icon: Calendar,
-        title: 'Calendrier de Shooting',
-        desc: 'Planifiez vos sessions photo et vidéo sur un calendrier interactif. Vue mois/année, notifications et gestion des conflits de planning.',
-        color: '#8b5cf6',
-        tag: 'Vue mois / année',
+        icon: Camera,
+        title: 'Gestion des Shootings',
+        desc: 'Planifiez vos séances photo et vidéo, assignez vos coéquipiers, fixez les tarifs et suivez les règlements de chaque shooting. Vue calendrier intégrée.',
+        color: '#06b6d4',
+        tag: 'Calendrier & Suivi',
     },
     {
         icon: Users,
-        title: 'Gestion Clients (CRM)',
-        desc: 'Centralisez tous vos clients, leurs coordonnées, matricules fiscales et historiques de commandes. Recherchez et filtrez en un instant.',
-        color: '#06b6d4',
+        title: 'CRM Clients',
+        desc: 'Centralisez tous vos clients avec leurs coordonnées, matricules fiscales et historique complet de commandes. Recherche et filtres instantanés.',
+        color: '#10b981',
         tag: 'CRM intégré',
     },
     {
         icon: UserCheck,
-        title: 'Suivi des Freelances',
-        desc: 'Gérez vos collaborateurs : paiements, acomptes et soldes. Calculez précisément ce qui leur est dû après chaque prestation.',
+        title: 'Gestion de l\'Équipe',
+        desc: 'Gérez vos coéquipiers : montant convenu, acomptes versés et solde restant dû après chaque prestation. Règlements calculés automatiquement.',
         color: '#f59e0b',
-        tag: 'Paiements & acomptes',
-    },
-    {
-        icon: TrendingUp,
-        title: 'Rentabilité en Temps Réel',
-        desc: 'Visualisez votre bénéfice net instantanément : revenus encaissés moins frais freelances. Pilotez votre studio avec des données fiables.',
-        color: '#10b981',
-        tag: 'Bénéfice net calculé',
+        tag: 'Règlements auto',
     },
     {
         icon: Wallet,
         title: 'Gestion des Dépenses',
-        desc: 'Suivez tous les paiements liés à votre business (loyer, matériel, abonnements). Gardez un œil sur vos sorties d\'argent pour une rentabilité réelle.',
+        desc: 'Suivez toutes vos charges (loyer, matériel, abonnements). Le bénéfice net est toujours calculé après déduction de vos frais réels.',
         color: '#f97316',
-        tag: 'Contrôle total',
-    }
-    /*,
+        tag: 'Charges & Rentabilité',
+    },
+    {
+        icon: Building,
+        title: 'Paramètres Société',
+        desc: 'Configurez votre logo, coordonnées, matricule fiscale et RIB. Ces informations s\'appliquent automatiquement à tous vos documents PDF.',
+        color: '#64748b',
+        tag: 'PDF personnalisé',
+    },
     {
         icon: FileDown,
-        title: 'PDFs Professionnels',
-        desc: 'Exportez vos devis et factures en PDF haute qualité prêts à envoyer à vos clients. Logo, coordonnées, TVA — tout est formaté impeccablement.',
+        title: 'PDF Téléchargeables',
+        desc: 'Générez et téléchargez vos devis et factures en PDF haute qualité. Logo, TVA 19%, coordonnées completes — prêts à envoyer à vos clients en un clic.',
         color: '#ef4444',
-        tag: 'Génération instantanée',
-    },*/
+        tag: 'Téléchargement instantané',
+    },
 ]
 
 const containerVariants = {
     hidden: {},
     visible: {
-        transition: { staggerChildren: 0.1 },
+        transition: { staggerChildren: 0.08 },
     },
 }
 
@@ -68,7 +76,7 @@ const cardVariants = {
 
 export default function Features() {
     return (
-        <section id="features" className="relative py-28 overflow-hidden">
+        <section id="features" className="relative py-24 overflow-hidden">
             {/* Background */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-purple-900/10 blur-[120px]" />
@@ -81,18 +89,18 @@ export default function Features() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.7 }}
-                    className="text-center mb-16"
+                    className="text-center mb-14"
                 >
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-purple-500/20 text-sm font-medium text-purple-300 mb-5">
                         <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
                         Fonctionnalités
                     </div>
-                    <h2 className="text-4xl lg:text-5xl font-black mb-5">
+                    <h2 className="text-4xl lg:text-5xl font-black mb-4">
                         Tout ce dont votre<br />
                         <span className="gradient-text">studio a besoin</span>
                     </h2>
                     <p className="text-muted text-lg max-w-2xl mx-auto">
-                        Une suite d'outils conçue spécifiquement pour les photographes et vidéastes professionnels en Tunisie.
+                        8 modules conçus spécifiquement pour les photographes et vidéastes professionnels en Tunisie.
                     </p>
                 </motion.div>
 
@@ -102,14 +110,14 @@ export default function Features() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: '-50px' }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
                 >
                     {features.map((feat, i) => (
                         <motion.div
                             key={i}
                             variants={cardVariants}
                             whileHover={{ y: -6, scale: 1.02 }}
-                            className="group glass rounded-2xl p-7 cursor-default relative overflow-hidden transition-all duration-300"
+                            className="group glass rounded-2xl p-6 cursor-default relative overflow-hidden transition-all duration-300"
                             style={{ border: `1px solid ${feat.color}18` }}
                         >
                             {/* Hover glow */}
@@ -120,22 +128,22 @@ export default function Features() {
 
                             {/* Icon */}
                             <div
-                                className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 relative"
+                                className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 relative"
                                 style={{ background: `${feat.color}18`, border: `1px solid ${feat.color}30` }}
                             >
-                                <feat.icon size={22} style={{ color: feat.color }} />
+                                <feat.icon size={20} style={{ color: feat.color }} />
                             </div>
 
                             {/* Tag */}
                             <div
-                                className="inline-block px-2.5 py-1 rounded-lg text-[11px] font-semibold mb-3"
+                                className="inline-block px-2 py-0.5 rounded-lg text-[10px] font-semibold mb-2.5"
                                 style={{ background: `${feat.color}15`, color: feat.color }}
                             >
                                 {feat.tag}
                             </div>
 
-                            <h3 className="text-lg font-bold text-white mb-3">{feat.title}</h3>
-                            <p className="text-muted text-sm leading-relaxed">{feat.desc}</p>
+                            <h3 className="text-sm font-bold text-white mb-2">{feat.title}</h3>
+                            <p className="text-muted text-xs leading-relaxed">{feat.desc}</p>
 
                             {/* Bottom accent */}
                             <div

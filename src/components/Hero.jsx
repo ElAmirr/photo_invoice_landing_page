@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { Flame, Clock } from 'lucide-react'
+import { Flame, Clock, Check, Camera, FileText, Users, Wallet, BarChart2 } from 'lucide-react'
 
 function useCountdown(targetDate) {
     const calc = (target) => {
@@ -25,191 +25,170 @@ function CountdownUnit({ value, label }) {
     const display = String(value).padStart(2, '0')
     return (
         <div className="flex flex-col items-center gap-1.5">
-            <div className="relative w-[52px] h-[52px] rounded-xl overflow-hidden bg-[#0d1119] border border-white/10 shadow-lg flex items-center justify-center">
-                {/* Top half line */}
-                <div className="absolute inset-x-0 top-1/2 h-px bg-black/40 z-10" />
+            <div className="relative w-[56px] h-[56px] rounded-xl overflow-hidden bg-black/40 border border-white/10 shadow-inner flex items-center justify-center">
+                <div className="absolute inset-x-0 top-1/2 h-px bg-black/50 z-10" />
                 <AnimatePresence mode="popLayout">
                     <motion.span
                         key={display}
-                        initial={{ y: -20, opacity: 0 }}
+                        initial={{ y: -18, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: 20, opacity: 0 }}
-                        transition={{ duration: 0.25, ease: 'easeInOut' }}
+                        exit={{ y: 18, opacity: 0 }}
+                        transition={{ duration: 0.22, ease: 'easeInOut' }}
                         className="text-2xl font-black text-white tabular-nums leading-none"
                     >
                         {display}
                     </motion.span>
                 </AnimatePresence>
             </div>
-            <span className="text-[9px] uppercase tracking-widest text-muted/50 font-bold">{label}</span>
+            <span className="text-[9px] uppercase tracking-widest text-white/30 font-bold">{label}</span>
         </div>
     )
 }
+
+const modules = [
+    { icon: FileText, label: 'Factures & Devis PDF' },
+    { icon: Camera, label: 'Shootings & Agenda' },
+    { icon: Users, label: 'Clients & Équipe' },
+    { icon: Wallet, label: 'Dépenses & Charges' },
+    { icon: BarChart2, label: 'Rentabilité Réelle' },
+]
 
 export default function Hero({ onSignup }) {
     const timeLeft = useCountdown('2026-05-30T23:59:59')
 
     return (
         <section className="relative h-screen flex items-center justify-center overflow-hidden pt-16">
-            {/* Background */}
+            {/* Layered background */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-purple-600/12 blur-[130px]" />
-                <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] rounded-full bg-fuchsia-700/15 blur-[100px]" />
-                <div className="absolute bottom-1/3 right-1/5 w-[300px] h-[300px] rounded-full bg-violet-600/10 blur-[90px]" />
+                <div className="absolute inset-0 bg-gradient-to-b from-violet-950/20 via-transparent to-transparent" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] rounded-full bg-purple-600/10 blur-[150px]" />
+                <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] rounded-full bg-fuchsia-700/12 blur-[80px]" />
+                <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] rounded-full bg-violet-700/10 blur-[80px]" />
                 <div
                     className="absolute inset-0 opacity-[0.025]"
                     style={{
-                        backgroundImage: 'linear-gradient(rgba(147,51,234,1) 1px, transparent 1px), linear-gradient(90deg, rgba(147,51,234,1) 1px, transparent 1px)',
+                        backgroundImage: 'linear-gradient(rgba(147,51,234,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(147,51,234,0.8) 1px, transparent 1px)',
                         backgroundSize: '60px 60px',
                     }}
                 />
+                {/* Radial fade at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-night to-transparent" />
             </div>
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            <div className="max-w-5xl mx-auto px-6 relative z-10 w-full text-center">
 
-                    {/* —— Left Column —— */}
-                    <div className="flex-1 text-center lg:text-left max-w-xl mx-auto lg:mx-0">
+                {/* Top tag */}
+                <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-purple-500/25 text-[11px] font-bold uppercase tracking-widest text-purple-300 mb-8"
+                >
+                    <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
+                    Application Desktop — Mac &amp; Windows
+                </motion.div>
 
-                        {/* H1 */}
-                        <motion.h1
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.1 }}
-                            className="text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.06] tracking-tight mb-4"
+                {/* Main headline */}
+                <motion.h1
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.05 }}
+                    className="text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.06] tracking-tight mb-5"
+                >
+                    Moins de paperasse.
+                    <br />
+                    <span className="gradient-text">Plus de créativité.</span>
+                </motion.h1>
+
+                {/* Sub-headline */}
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.15 }}
+                    className="text-base lg:text-lg text-muted max-w-xl mx-auto mb-8 leading-relaxed"
+                >
+                    Shootix centralise tout votre business de studio en un seul outil desktop — conçu pour les photographes &amp; vidéastes tunisiens.
+                </motion.p>
+
+                {/* Module pills */}
+                <motion.div
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.25 }}
+                    className="flex flex-wrap items-center justify-center gap-2 mb-10"
+                >
+                    {modules.map((m, i) => (
+                        <div
+                            key={i}
+                            className="flex items-center gap-2 px-3.5 py-2 rounded-full glass border border-white/8 text-xs font-semibold text-white/70"
                         >
-                            Gérez votre{' '}
-                            <span className="gradient-text">studio photo</span>
-                            {' '}comme un pro
-                        </motion.h1>
+                            <m.icon size={12} className="text-purple-400" />
+                            {m.label}
+                        </div>
+                    ))}
+                    <div className="flex items-center gap-2 px-3.5 py-2 rounded-full glass border border-white/8 text-xs font-semibold text-white/70">
+                        <Check size={12} className="text-green-400" />
+                        TVA 19% Conformité TN
+                    </div>
+                </motion.div>
 
-                        {/* Subtitle */}
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.2 }}
-                            className="text-sm lg:text-base text-muted leading-relaxed mb-5"
+                {/* CTA + Countdown row */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.35 }}
+                    className="flex flex-col sm:flex-row items-center justify-center gap-6"
+                >
+                    {/* Primary CTA block */}
+                    <div className="flex flex-col items-center gap-2">
+                        <button
+                            onClick={onSignup}
+                            className="inline-flex items-center justify-center px-10 py-4 rounded-2xl text-base font-bold text-white bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 transition-all duration-300 shadow-2xl shadow-violet-500/25 hover:scale-[1.02] active:scale-[0.98]"
                         >
-                            Facturation, clients, calendrier, dépenses et rentabilité — tout en un.
-                            <span className="text-white font-semibold"> 15 jours d'essai gratuit.</span>
-                        </motion.p>
-
-                        {/* ── Countdown ── */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.3 }}
-                            className="mb-5"
+                            Démarrer l'essai gratuit — 15 jours
+                        </button>
+                        <a
+                            href="#pricing"
+                            className="text-sm text-muted/60 hover:text-white transition-colors font-medium underline underline-offset-4 decoration-white/15 hover:decoration-white/40"
                         >
-                            <div className="inline-block glass rounded-xl border border-white/8 px-4 py-3">
-                                {/* Promo label */}
-                                <div className="flex items-center gap-2 mb-3 justify-center lg:justify-start">
-                                    <Flame size={11} className="text-fuchsia-400 animate-pulse" />
-                                    <p className="text-[10px] font-black uppercase tracking-widest text-fuchsia-300">
-                                        Offre limitée — 549 DT au lieu de 699 DT
-                                    </p>
-                                </div>
-                                {/* Timer label */}
-                                <div className="flex items-center gap-2 mb-3 justify-center lg:justify-start">
-                                    <Clock size={12} className="text-muted/50" />
-                                    <p className="text-[9px] font-bold uppercase tracking-widest text-muted/50">
-                                        Expire dans
-                                    </p>
-                                </div>
-                                <div className="flex items-start gap-2.5">
-                                    <CountdownUnit value={timeLeft.days} label="Jours" />
-                                    <span className="text-2xl font-black text-white/20 mt-3 leading-none">:</span>
-                                    <CountdownUnit value={timeLeft.hours} label="Heures" />
-                                    <span className="text-2xl font-black text-white/20 mt-3 leading-none">:</span>
-                                    <CountdownUnit value={timeLeft.minutes} label="Mins" />
-                                    <span className="text-2xl font-black text-white/20 mt-3 leading-none">:</span>
-                                    <CountdownUnit value={timeLeft.seconds} label="Secs" />
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        {/* CTAs */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.45 }}
-                            className="flex flex-col sm:flex-row items-center gap-3 justify-center lg:justify-start"
-                        >
-                            <button
-                                onClick={onSignup}
-                                className="inline-flex items-center justify-center px-8 py-4 rounded-2xl text-base font-bold text-white bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 transition-all duration-300 glow-violet shadow-2xl hover:scale-[1.02] active:scale-[0.98]"
-                            >
-                                Démarrer l'essai gratuit
-                            </button>
-                            <a
-                                href="#pricing"
-                                className="inline-flex items-center justify-center px-6 py-4 rounded-2xl text-sm font-bold glass border border-white/10 text-white hover:bg-white/5 transition-all duration-300"
-                            >
-                                Voir l'offre à 549 DT
-                            </a>
-                        </motion.div>
-
-                        {/* Social proof micro-line */}
-                        <motion.p
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 1, delay: 0.7 }}
-                            className="text-[10px] text-muted/40 mt-4 font-medium"
-                        >
-                            ✓ Aucune carte bancaire &nbsp;·&nbsp; ✓ Accès immédiat &nbsp;·&nbsp; ✓ Annulable à tout moment
-                        </motion.p>
-
+                            Voir l'offre à 349 DT
+                        </a>
                     </div>
 
-                    {/* —— Right Column: Dashboard —— */}
-                    <div className="flex-1 relative w-full max-w-2xl">
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9, y: 40 }}
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                            transition={{ duration: 1, delay: 0.35 }}
-                            className="relative animate-float"
-                        >
-                            {/* Glow behind card */}
-                            <div className="absolute -inset-4 bg-gradient-to-br from-purple-600/20 to-fuchsia-600/10 rounded-3xl blur-2xl -z-10" />
-                            <DashboardPreview />
-                        </motion.div>
-                    </div>
+                    {/* Divider */}
+                    <div className="hidden sm:block w-px h-16 bg-white/10" />
 
-                </div>
+                    {/* Countdown */}
+                    <div className="inline-block glass rounded-2xl border border-fuchsia-500/15 px-5 py-4">
+                        <div className="flex items-center gap-2 mb-3 justify-center">
+                            <Flame size={11} className="text-fuchsia-400 animate-pulse" />
+                            <p className="text-[10px] font-black uppercase tracking-widest text-fuchsia-300">
+                                349 DT — Offre expire dans
+                            </p>
+                        </div>
+                        <div className="flex items-start gap-2">
+                            <CountdownUnit value={timeLeft.days} label="Jours" />
+                            <span className="text-xl font-black text-white/20 mt-4 leading-none">:</span>
+                            <CountdownUnit value={timeLeft.hours} label="Heures" />
+                            <span className="text-xl font-black text-white/20 mt-4 leading-none">:</span>
+                            <CountdownUnit value={timeLeft.minutes} label="Mins" />
+                            <span className="text-xl font-black text-white/20 mt-4 leading-none">:</span>
+                            <CountdownUnit value={timeLeft.seconds} label="Secs" />
+                        </div>
+                    </div>
+                </motion.div>
+
+                {/* Trust line */}
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: 0.7 }}
+                    className="text-[10px] text-white/25 mt-7 font-medium tracking-wide"
+                >
+                    ✓ Aucune carte bancaire &nbsp;·&nbsp; ✓ Accès immédiat &nbsp;·&nbsp; ✓ Annulable à tout moment
+                </motion.p>
+
             </div>
         </section>
-    )
-}
-
-function DashboardPreview() {
-    return (
-        <div className="rounded-2xl overflow-hidden glass border border-white/10 shadow-2xl bg-[#0B0E14]/90 backdrop-blur-xl group">
-            {/* macOS Window Controls */}
-            <div className="flex items-center gap-2 px-5 py-4 border-b border-white/5 bg-[#0B0E14]/50">
-                <div className="flex gap-1.5">
-                    <div className="w-3.5 h-3.5 rounded-full bg-[#FF5F56] shadow-inner relative overflow-hidden">
-                        <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </div>
-                    <div className="w-3.5 h-3.5 rounded-full bg-[#FFBD2E] shadow-inner relative overflow-hidden">
-                        <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </div>
-                    <div className="w-3.5 h-3.5 rounded-full bg-[#27C93F] shadow-inner relative overflow-hidden">
-                        <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </div>
-                </div>
-                <div className="mx-auto text-[11px] font-bold text-muted/60 tracking-wider uppercase">Shootix Studio — Dashboard</div>
-            </div>
-
-            {/* Screenshot */}
-            <div className="relative aspect-[1271/645] overflow-hidden bg-[#1a1d26]">
-                <img
-                    src="/Screenshot.png"
-                    alt="Shootix Dashboard"
-                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.01]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0E14]/30 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute inset-0 ring-1 ring-inset ring-white/[0.05] pointer-events-none" />
-            </div>
-        </div>
     )
 }

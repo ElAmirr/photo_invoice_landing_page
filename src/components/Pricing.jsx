@@ -161,7 +161,7 @@ export default function Pricing({ onSignup }) {
 
                             <div className="mb-4">
                                 <div className="flex items-baseline gap-2">
-                                    <div className="text-4xl font-black text-white">549 DT</div>
+                                    <div className="text-4xl font-black text-white">349 DT</div>
                                     <div className="text-lg text-muted/50 line-through font-bold">699 DT</div>
                                 </div>
                                 <div className="text-fuchsia-400 text-[10px] font-bold mt-1 uppercase tracking-wider">
