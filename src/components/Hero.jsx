@@ -77,19 +77,10 @@ export default function Hero({ onSignup }) {
 
             <div className="max-w-5xl mx-auto px-6 relative z-10 w-full text-center">
 
-                {/* Top tag */}
-                <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-purple-500/25 text-[11px] font-bold uppercase tracking-widest text-purple-300 mb-8"
-                >
-                    <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
-                    Application Desktop — Mac &amp; Windows
-                </motion.div>
+
 
                 {/* Main headline */}
-                <motion.h1
+                < motion.h1
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.05 }}
@@ -149,7 +140,7 @@ export default function Hero({ onSignup }) {
                         </button>
                         <a
                             href="#pricing"
-                            className="text-sm text-muted/60 hover:text-white transition-colors font-medium underline underline-offset-4 decoration-white/15 hover:decoration-white/40"
+                            className="w-full sm:w-[320px] inline-flex items-center justify-center px-8 py-4 rounded-2xl text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-fuchsia-600 border border-violet-500 hover:border-fuchsia-500 hover:bg-violet-500/5 transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98]"
                         >
                             Voir l'offre à 349 DT
                         </a>
@@ -189,6 +180,6 @@ export default function Hero({ onSignup }) {
                 </motion.p>
 
             </div>
-        </section>
+        </section >
     )
 }

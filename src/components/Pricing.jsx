@@ -203,7 +203,7 @@ export default function Pricing({ onSignup }) {
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-2xl mx-auto">
                         <a
-                            href="https://drive.google.com/uc?export=download&id=1Esnv62q0czZRkc3sxMDLla7wOU1VpzIW"
+                            href="https://drive.google.com/file/d/1wysGhHO5rl-sn_W8ttrsk9osSw84fnof/view?usp=drive_link"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-3 rounded-xl glass border border-white/10 text-white text-sm font-bold hover:bg-white/5 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 group"
@@ -212,7 +212,7 @@ export default function Pricing({ onSignup }) {
                             macOS (v1.0.5)
                         </a>
                         <a
-                            href="https://drive.google.com/uc?export=download&id=1Xy9M_UdFedjcUsF89aPDNmQUr7l-Dhuz"
+                            href="https://drive.google.com/file/d/1Xy9M_UdFedjcUsF89aPDNmQUr7l-Dhuz/view?usp=drive_link"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-3 rounded-xl glass border border-white/10 text-white text-sm font-bold hover:bg-white/5 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 group"
