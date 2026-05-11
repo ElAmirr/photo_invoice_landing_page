@@ -57,7 +57,7 @@ export default function Hero({ onSignup }) {
     const timeLeft = useCountdown('2026-05-30T23:59:59')
 
     return (
-        <section className="relative h-screen flex items-center justify-center overflow-hidden pt-16">
+        <section className="relative h-screen flex items-center justify-center overflow-hidden pt-24">
             {/* Layered background */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute inset-0 bg-gradient-to-b from-violet-950/20 via-transparent to-transparent" />
